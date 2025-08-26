@@ -1,5 +1,5 @@
 async function checkTweets() {
-  const username = document.getElementById("username").value;
+  const username = document.getElementById("username").value.trim();
   const resultDiv = document.getElementById("result");
 
   if (!username) {

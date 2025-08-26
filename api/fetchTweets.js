@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const bearerToken = process.env.TWITTER_BEARER_TOKEN; // safe storage
+  const bearerToken = process.env.TWITTER_BEARER_TOKEN; // stored in Vercel
   const { username } = req.query;
 
   if (!username) {
@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 1. Get the user ID from username
+    // 1. Get user ID from username
     const userResponse = await fetch(
       `https://api.twitter.com/2/users/by/username/${username}`,
       {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     }
     const userId = userData.data.id;
 
-    // 2. Get tweets and replies from that user
+    // 2. Get latest 100 tweets (includes replies)
     const tweetsResponse = await fetch(
       `https://api.twitter.com/2/users/${userId}/tweets?max_results=100&tweet.fields=conversation_id`,
       {
@@ -34,7 +34,8 @@ export default async function handler(req, res) {
 
     if (tweetsData.data) {
       for (let tweet of tweetsData.data) {
-        if (tweet.text.toLowerCase().includes("hirys")) {
+        if (tweet.text && tweet.text.toLowerCase().includes("hirys")) {
+          // check if it's an original tweet or a reply
           if (tweet.conversation_id === tweet.id) {
             tweetCount++; // original tweet
           } else {
