@@ -1,30 +1,64 @@
-/* General body styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #2e8b57; /* ocean green */
   margin: 0;
-  padding: 0;
-
-  /* Add faint Irys logos in the background */
-  background-image: url("/irys-logo.png");
-  background-repeat: repeat;
-  background-size: 80px; /* smaller scattered logos */
-  background-position: center;
-}
-
-/* Main container styling */
-.container {
-  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent white box */
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 600px;
-  margin: 50px auto;
+  font-family: Arial, sans-serif;
+  background-color: #014d4e; /* ocean green */
+  color: white;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Logo styling */
-.logo {
+.background-logos {
+  background-image: url("irys-logo.png");
+  background-repeat: repeat;
+  background-size: 80px;
+  opacity: 0.08; /* faint logos */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: 80px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.main-logo {
   width: 120px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+button {
+  background-color: #02a89e;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #029688;
+}
+
+footer {
+  margin-top: 30px;
+  font-size: 14px;
+  z-index: 1;
+  position: relative;
 }

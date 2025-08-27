@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hirys Tweet Counter</title>
+  <title>Irys Hirys Counter</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="background-logos"></div>
+  
   <div class="container">
-    <h1>🐦 Hirys Tweet Counter</h1>
-    <p>Check how many times a Twitter user has tweeted or commented "hirys".</p>
-    
-    <input type="text" id="username" placeholder="Enter Twitter username">
-    <button onclick="checkTweets()">Check</button>
-    
-    <div id="result"></div>
+    <img src="irys-logo.png" alt="Irys Logo" class="main-logo">
+    <h1>Irys "hirys" Counter</h1>
+    <input type="text" id="username" placeholder="Enter your X username (without @)">
+    <button onclick="getCount()">Check</button>
+    <p id="result"></p>
   </div>
+
+  <footer>
+    <p>Made by @lae_gend</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
