@@ -1,43 +1,30 @@
-Vbody {
+/* General body styling */
+body {
   font-family: Arial, sans-serif;
-  background-color: #f5f8fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #2e8b57; /* ocean green */
   margin: 0;
+  padding: 0;
+
+  /* Add faint Irys logos in the background */
+  background-image: url("/irys-logo.png");
+  background-repeat: repeat;
+  background-size: 80px; /* smaller scattered logos */
+  background-position: center;
 }
 
+/* Main container styling */
 .container {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent white box */
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 50px auto;
   text-align: center;
-  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-input {
-  padding: 10px;
-  margin-top: 10px;
-  width: 80%;
-}
-
-button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  border: none;
-  background: #1da1f2;
-  color: white;
-  border-radius: 5px;
-}
-
-button:hover {
-  background: #0d8ddb;
-}
-
-#result {
-  margin-top: 20px;
-  font-weight: bold;
+/* Logo styling */
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
 }
