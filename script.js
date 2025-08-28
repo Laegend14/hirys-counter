@@ -1,23 +1,24 @@
-async function getCount() {
-  const username = document.getElementById("username").value.trim();
-  const result = document.getElementById("result");
+async function getTweetCount() {
+  const username = document.getElementById("username").value;
 
   if (!username) {
-    result.textContent = "❌ Please enter a username";
+    document.getElementById("result").innerText = "Please enter a username!";
     return;
   }
 
-  result.textContent = "Fetching tweets...";
+  document.getElementById("result").innerText = "Checking...";
 
   try {
-    // Call our backend API (we’ll make this in Vercel)
-    const res = await fetch(`/api/count?username=${username}`);
+    const res = await fetch(`/api/tweets?username=${username}`);
     const data = await res.json();
 
-    result.textContent = `${username} has mentioned "hirys" ${data.count} times in tweets/comments.`;
-
+    if (data.error) {
+      document.getElementById("result").innerText = "Error: " + data.error;
+    } else {
+      document.getElementById("result").innerText =
+        `@${username} has tweeted "hirys" ${data.count} times.`;
+    }
   } catch (err) {
-    console.error(err);
-    result.textContent = "⚠️ Error fetching tweets.";
+    document.getElementById("result").innerText = "Something went wrong!";
   }
 }
